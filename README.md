@@ -2,18 +2,39 @@
 
 The DTM sources behind Freemap's elevation API, one directory per dataset.
 
-Deployed to `/fm/storage1/backend.freemap.sk-data/elevation-sources` on fm6.
+Deployed to `/fm/storage1/backend.freemap.sk-data/elevation-sources` on fm6,
+where it is a checkout of this repository. Edit it here and pull there; a
+deploy of [`dem-pyramid`](https://github.com/FreemapSlovakia/dem-pyramid)
+refuses to run if that checkout is dirty or behind.
 
 ## Layout
 
-A directory per dataset, named `NNN-slug`, holding a single `source.json`.
+```
+010-sk/source.json
+020-cz/source.json
+...
+999-gedtm30/source.json
+```
 
-The numeric prefix orders the sources: the first one covering a point answers
-for it, so a lower prefix outranks a higher one. `999-gedtm30` is the global
-fallback and every other source outranks it. The slug is for readers only —
-nothing parses it.
+One directory per dataset, named `NNN-slug`. Anything without a `source.json`
+is ignored, which is how `.git` and this README stay out of the way.
+
+### Directory name
+
+| Part | Meaning |
+| --- | --- |
+| `NNN` | Precedence. The first source covering a point answers for it, so a **lower number outranks a higher one**. `999-gedtm30` is the global fallback and every other source outranks it. |
+| `slug` | For readers only. Nothing parses it. |
+
+Numbers are spaced so a source can be inserted between two others without
+renaming them. They need not be contiguous, but they must be unique, and the
+relative order must match the `priority` column in `dem-pyramid`'s
+`sources.yaml` for the datasets that appear in both — `dem-tool check`
+compares the two and fails on disagreement.
 
 ## source.json
+
+Every field below is required unless marked optional. No other keys are read.
 
 ```json
 {
@@ -28,22 +49,33 @@ nothing parses it.
 }
 ```
 
-- **`name`** — the model, as the API reports it: a country code for a national
-  model, the model's own id otherwise. Several datasets may share one name;
-  `es` is three, `fr` seven and `sonny` fourteen. Consumers merge them.
-- **`file`** — the raster, absolute, as GDAL opens it.
-- **`attributions`** — what to display for this dataset: `name` is the credit
-  line verbatim as the licence asks for it, and `url` a page to link to where
-  there is one. A list, because one dataset can carry several credits — the
-  German Sonny mosaic carries seventeen, one per Land.
+| Field | Type | Meaning |
+| --- | --- | --- |
+| `name` | string | The **model** this dataset belongs to, as the API reports it: an ISO country code for a national model (`sk`, `cz`, `fr`), the model's own id otherwise (`gedtm30`, `sonny`). Not unique — several datasets share one name, and consumers merge them under it. `es` is three, `fr` seven, `sonny` fourteen. |
+| `file` | string | The raster, **absolute**, exactly as GDAL opens it. Unique across the repository: this, not `name`, is what identifies a dataset. A `.vrt` is fine. |
+| `attributions` | array | What to display when this dataset is used. Must hold at least one entry — a dataset with none stops `dem-pyramid` from starting, because serving uncredited data is a licence breach. |
+| `attributions[].name` | string | The credit line **verbatim** as the licence asks for it, including any required rights-holder wording. Displayed as given; consumers do not reformat it. |
+| `attributions[].url` | string, optional | A page to link the credit to. Omit the key entirely when there is nowhere sensible to point. |
 
-Every dataset needs at least one attribution. `dem-pyramid` refuses to serve a
-model with none, since a silently uncredited source is a licence breach.
+Several entries are normal where one dataset merges data from several
+providers: `250-sonny-de` carries seventeen, one per Land, and `240-be` two,
+for Flanders and Wallonia.
+
+## Adding a dataset
+
+1. Add `NNN-slug/source.json` here, with its credit, and push.
+2. Pull on fm6.
+3. If the pyramid should also build from it, add the matching entry to
+   `sources.yaml` in `dem-pyramid` — same `file`, same `name`, consistent
+   order — and run `dem-tool check`.
+
+Step 3 is optional: this list is the superset. It holds datasets the pyramid
+does not build, and that is not a disagreement.
 
 ## Consumers
 
-- Freemap's elevation API, for reads and for the credits it returns.
-- [`dem-pyramid`](https://github.com/FreemapSlovakia/dem-pyramid), which reads
-  the credit lines at startup and reports them per render in `meta.sources`.
-  It ingests a subset of these sources; its own build metadata — projection,
-  resolution, nodata, resampling — lives in that repo's `sources.yaml`.
+- **Freemap's elevation API** — reads the rasters and returns these credits.
+- **[`dem-pyramid`](https://github.com/FreemapSlovakia/dem-pyramid)** — reads
+  the credits at startup and reports, per render, which models answered it.
+  Its own build metadata — projection, resolution, nodata, resampling, pyramid
+  levels — is not here; it lives in that repository's `sources.yaml`.
