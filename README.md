@@ -69,6 +69,12 @@ for Flanders and Wallonia.
 3. If the pyramid should build from it, add `"pyramid": true` and run
    `dem-tool refresh` on the data host.
 
+**Removing `pyramid` from a dataset the pyramid already built needs the same
+second step.** `dem-pyramid` refuses to start while its cache still holds a
+source this list no longer marks, since it then has no credit to show for it —
+so unmark it here, then run `dem-tool refresh` on the data host. Otherwise the
+next restart of a running service is where it surfaces.
+
 Step 3 is optional: this list is the superset. The Sonny datasets are served by
 the elevation API but not built into the pyramid — they bridge the gap between
 national data and GEDTM30, and fall back to SRTM where Sonny found no national
