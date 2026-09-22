@@ -1,0 +1,14 @@
+{
+  "name": "sonny",
+  "file": "/fm/storage1/dtm/sonny/lv/lv.tif",
+  "attributions": [
+    {
+      "name": "Sonny's LiDAR DTM (CC BY 4.0)",
+      "url": "https://sonny.4lima.de/"
+    },
+    {
+      "name": "Latvian Geospatial Information Agency: DTM 20 Meter",
+      "url": "https://opendata.lgia.gov.lv/zf_wp/index.php/category/citi/"
+    }
+  ]
+}

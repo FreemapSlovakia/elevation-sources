@@ -1,0 +1,37 @@
+{
+  "name": "sonny",
+  "file": "/fm/storage1/dtm/sonny/gb/gb.tif",
+  "attributions": [
+    {
+      "name": "Sonny's LiDAR DTM (CC BY 4.0)",
+      "url": "https://sonny.4lima.de/"
+    },
+    {
+      "name": "Environment Agency: LiDAR Composite DTM 10 m",
+      "url": "https://environment.data.gov.uk/dataset/ce8fe7e7-bed0-4889-8825-19b042e128d2"
+    },
+    {
+      "name": "Welsh Government: LiDAR DTM 1 m",
+      "url": "https://datamap.gov.wales/maps/lidar-viewer/"
+    },
+    {
+      "name": "Scottish Government: Different LiDAR sources DTM 0.5 - 2 m",
+      "url": "https://remotesensingdata.gov.scot/"
+    },
+    {
+      "name": "Ordnance Survey of Northern Ireland, Land & Property Services: 10m DTM-Sheets, River Basin LIDAR 2004-2014 DTM 1m"
+    },
+    {
+      "name": "Department for Infrastructure of Northern Ireland: LIDAR Belfast 2006 DTM 0.5m, LIDAR Lough Neagh Environs 2014 DTM 1m",
+      "url": "https://www.opendatani.gov.uk/"
+    },
+    {
+      "name": "Department of Infrastructure, Isle of Man: DTM 20m",
+      "url": "https://www.gov.im/categories/planning-and-building-control/mapping/"
+    },
+    {
+      "name": "Ordnance Survey: OS Terrain DTM 50m",
+      "url": "https://www.ordnancesurvey.co.uk/business-government/products/terrain-50"
+    }
+  ]
+}

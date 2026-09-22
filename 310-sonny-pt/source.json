@@ -1,0 +1,18 @@
+{
+  "name": "sonny",
+  "file": "/fm/storage1/dtm/sonny/pt/pt.tif",
+  "attributions": [
+    {
+      "name": "Sonny's LiDAR DTM (CC BY 4.0)",
+      "url": "https://sonny.4lima.de/"
+    },
+    {
+      "name": "Direção-Geral do Território: DTM 2m",
+      "url": "https://cdd.dgterritorio.gov.pt/dgt-fe/catalogos"
+    },
+    {
+      "name": "NASA: SRTM Version 3.0 Global 1\" DTMs",
+      "url": "https://dwtkns.com/srtm30m/"
+    }
+  ]
+}

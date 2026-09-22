@@ -1,0 +1,14 @@
+{
+  "name": "sonny",
+  "file": "/fm/storage1/dtm/sonny/pt-azores/pt-azores.tif",
+  "attributions": [
+    {
+      "name": "Sonny's LiDAR DTM (CC BY 4.0)",
+      "url": "https://sonny.4lima.de/"
+    },
+    {
+      "name": "Secretaria Regional do Ambiente e Alterações Climáticas/Governo dos Açores: Modelo Digital do Terreno: DTM 0.5m",
+      "url": "https://sma.idea.azores.gov.pt/geonetwork/srv/por/catalog.search#/metadata/13e9d67a-dfa5-46d1-9ab8-210c4d7fb2f7"
+    }
+  ]
+}

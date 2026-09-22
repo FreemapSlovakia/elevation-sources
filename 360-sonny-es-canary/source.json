@@ -1,0 +1,14 @@
+{
+  "name": "sonny",
+  "file": "/fm/storage1/dtm/sonny/es-canary/es-canary.tif",
+  "attributions": [
+    {
+      "name": "Sonny's LiDAR DTM (CC BY 4.0)",
+      "url": "https://sonny.4lima.de/"
+    },
+    {
+      "name": "LiDAR-PNOA assigned by Instituto Geográfico Nacional (IGN)",
+      "url": "https://centrodedescargas.cnig.es/CentroDescargas/"
+    }
+  ]
+}

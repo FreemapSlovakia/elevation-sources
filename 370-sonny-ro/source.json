@@ -1,0 +1,22 @@
+{
+  "name": "sonny",
+  "file": "/fm/storage1/dtm/sonny/ro/ro.tif",
+  "attributions": [
+    {
+      "name": "Sonny's LiDAR DTM (CC BY 4.0)",
+      "url": "https://sonny.4lima.de/"
+    },
+    {
+      "name": "Agentia Nationala de Cadastru si Publicitate Imobiliara (ANCPI): LAKI II MNT (DTM 1 Meter)",
+      "url": "https://geoportal.ancpi.ro/portal/apps/webappviewer/index.html?id=3f34ee5af71c400396dda574f0d53274"
+    },
+    {
+      "name": "NASA: SRTM Version 3.0 Global 1\" DTMs",
+      "url": "https://dwtkns.com/srtm30m/"
+    },
+    {
+      "name": "Viewfinder Panoramas by Jonathan de Ferranti: 1\" DTMs",
+      "url": "http://viewfinderpanoramas.org/dem3.html"
+    }
+  ]
+}

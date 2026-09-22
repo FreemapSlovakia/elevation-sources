@@ -1,0 +1,14 @@
+{
+  "name": "sonny",
+  "file": "/fm/storage1/dtm/sonny/lt/lt.tif",
+  "attributions": [
+    {
+      "name": "Sonny's LiDAR DTM (CC BY 4.0)",
+      "url": "https://sonny.4lima.de/"
+    },
+    {
+      "name": "Nacionaline žemes tarnyba prie Aplinkos ministerijos: DTM 5 Meter",
+      "url": "https://www.inspire-geoportal.lt/geonetwork/srv/api/records/7ce59d66-159c-4b81-9951-20f801f05748"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "sonny",
+  "file": "/fm/storage1/dtm/sonny/cy/cy.tif",
+  "attributions": [
+    {
+      "name": "Sonny's LiDAR DTM (CC BY 4.0)",
+      "url": "https://sonny.4lima.de/"
+    },
+    {
+      "name": "Department of Lands and Surveys - INSPIRE GeoPortal: DTM 5 Meter",
+      "url": "https://eservices.dls.moi.gov.cy/#/national/inspiregeoportalmapviewer"
+    },
+    {
+      "name": "NASA: SRTM Version 3.0 Global 1\" DTMs",
+      "url": "https://dwtkns.com/srtm30m/"
+    }
+  ]
+}

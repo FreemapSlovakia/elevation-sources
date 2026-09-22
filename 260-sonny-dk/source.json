@@ -1,0 +1,14 @@
+{
+  "name": "sonny",
+  "file": "/fm/storage1/dtm/sonny/dk/dk.tif",
+  "attributions": [
+    {
+      "name": "Sonny's LiDAR DTM (CC BY 4.0)",
+      "url": "https://sonny.4lima.de/"
+    },
+    {
+      "name": "Kortforsyningen | Styrelsen for DataForsyning og Effektivisering : DHM/Terræn (0,4 m grid): DTM 0.4 Meter",
+      "url": "https://download.kortforsyningen.dk/content/dhmterr%C3%A6n-04-m-grid"
+    }
+  ]
+}

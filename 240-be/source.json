@@ -1,0 +1,14 @@
+{
+  "name": "be",
+  "file": "/fm/storage1/dtm/be/be.vrt",
+  "attributions": [
+    {
+      "name": "MNT 1 m 2021–2022: © Service public de Wallonie (SPW), CC BY 4.0 — modified",
+      "url": "https://geoportail.wallonie.be/catalogue/fe13bc84-e371-46ca-9632-8ad4139f1ee5.html"
+    },
+    {
+      "name": "DHMV II 1 m — Bron: Digitaal Vlaanderen (Modellicentie gratis hergebruik)",
+      "url": "https://metadata.vlaanderen.be/srv/dut/catalog.search#/metadata/f52b1a13-86bc-4b64-8256-88cc0d1a8735"
+    }
+  ]
+}

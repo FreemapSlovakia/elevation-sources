@@ -1,0 +1,14 @@
+{
+  "name": "sonny",
+  "file": "/fm/storage1/dtm/sonny/ee/ee.tif",
+  "attributions": [
+    {
+      "name": "Sonny's LiDAR DTM (CC BY 4.0)",
+      "url": "https://sonny.4lima.de/"
+    },
+    {
+      "name": "Estonian Land Board: DTM 10 Meter",
+      "url": "https://geoportaal.maaamet.ee/index.php?lang_id=1&page_id=607#tab3"
+    }
+  ]
+}

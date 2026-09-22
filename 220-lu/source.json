@@ -1,0 +1,10 @@
+{
+  "name": "lu",
+  "file": "/fm/storage1/dtm/lu/luxembourg_dem_1m.tif",
+  "attributions": [
+    {
+      "name": "MNT LiDAR 2024: Administration du cadastre et de la topographie (CC0)",
+      "url": "https://data.public.lu/en/datasets/lidar-2024-releve-3d-du-territoire-luxembourgeois/"
+    }
+  ]
+}

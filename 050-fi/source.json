@@ -1,0 +1,10 @@
+{
+  "name": "fi",
+  "file": "/fm/storage1/dtm/fi/tiles/fi.vrt",
+  "attributions": [
+    {
+      "name": "Korkeusmalli 2 m: Maanmittauslaitos",
+      "url": "https://www.maanmittauslaitos.fi/en/maps-and-spatial-data/datasets-and-interfaces/product-descriptions/elevation-model-2-m"
+    }
+  ]
+}

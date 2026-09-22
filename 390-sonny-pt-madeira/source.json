@@ -1,0 +1,18 @@
+{
+  "name": "sonny",
+  "file": "/fm/storage1/dtm/sonny/pt-madeira/pt-madeira.tif",
+  "attributions": [
+    {
+      "name": "Sonny's LiDAR DTM (CC BY 4.0)",
+      "url": "https://sonny.4lima.de/"
+    },
+    {
+      "name": "Direção Regional do Ordenamento do Território: Modelo Digital do Terreno da Ilha da Madeira, Porto Santo: DTM 10m",
+      "url": "https://catalogo-irig.madeira.gov.pt"
+    },
+    {
+      "name": "JAXA ALOS World 3D: 1\" DTMs",
+      "url": "http://www.eorc.jaxa.jp/ALOS/en/aw3d30/data/index.htm"
+    }
+  ]
+}

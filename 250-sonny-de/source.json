@@ -1,0 +1,74 @@
+{
+  "name": "sonny",
+  "file": "/fm/storage1/dtm/sonny/de/de.tif",
+  "attributions": [
+    {
+      "name": "Sonny's LiDAR DTM (CC BY 4.0)",
+      "url": "https://sonny.4lima.de/"
+    },
+    {
+      "name": "Landesamt für Geoinformation und Landentwicklung Baden-Württemberg: DGM 1 m",
+      "url": "https://www.lgl-bw.de/Produkte/3D-Produkte/Digitale-Gelaendemodelle/"
+    },
+    {
+      "name": "Bayerische Vermessungsverwaltung (www.geodaten.bayern.de): DTM 1 m",
+      "url": "https://geodaten.bayern.de/opengeodata/OpenDataDetail.html?pn=dgm1"
+    },
+    {
+      "name": "Senatsverwaltung für Stadtentwicklung und Umwelt Berlin: ATKIS® DTM 1 m",
+      "url": "http://www.stadtentwicklung.berlin.de/geoinformation/geodateninfrastruktur/de/geodienste/atom.shtml"
+    },
+    {
+      "name": "Land Brandenburg, Landesvermessung und Geobasisinformation Brandenburg (LGB): DTM 1 m",
+      "url": "https://geoportal.brandenburg.de/detailansichtdienst/render?view=gdibb&url=https://geoportal.brandenburg.de/gs-json/xml?fileid=488a2b53-564f-43eb-88ec-0d87bb43ed20"
+    },
+    {
+      "name": "Landesamt GeoInformation Bremen: DTM 5 m",
+      "url": "https://metaver.de/trefferanzeige?docuuid=8CCBF995-0CBB-4E6B-968A-C56BBE39EBC2"
+    },
+    {
+      "name": "Freie und Hansestadt Hamburg, Landesbetrieb Geoinformation und Vermessung, 2014 : DTM 1 m",
+      "url": "https://metaver.de/trefferanzeige?docuuid=A39B4E86-15E2-4BF7-BA82-66F9913D5640"
+    },
+    {
+      "name": "Hessisches Landesamt für Bodenmanagement und Geoinformation: DTM 1 m",
+      "url": "https://hvbg.hessen.de/landesvermessung/geotopographie/3d-daten/digitale-gelaendemodelle"
+    },
+    {
+      "name": "Landesamt für innere Verwaltung Mecklenburg-Vorpommern: DTM 5 m",
+      "url": "https://laiv.geodaten-mv.de/afgvk/Geotopographie/Beschreibung?produkt=DGM"
+    },
+    {
+      "name": "Landesamt für Geoinformation und Landesvermessung Niedersachsen: DTM 1 m",
+      "url": "https://ni-lgln-opengeodata.hub.arcgis.com/apps/lgln-opengeodata::digitales-gel%C3%A4ndemodell-dgm1/about"
+    },
+    {
+      "name": "Land Nordrhein-Westfalen (2017), DTM 1 m",
+      "url": "https://open.nrw/de/dataset/0c6796e5-9eca-4ae6-8b32-1fcc5ae5c481bkg"
+    },
+    {
+      "name": "Landesamt für Vermessung und Geobasisinformation Rheinland-Pfalz: DTM 1 m",
+      "url": "https://geoshop.rlp.de/opendata-dgm1.html"
+    },
+    {
+      "name": "Landesamt für Vermessung, Geoinformation und Landentwicklung Saarland: DTM 1 m",
+      "url": "https://www.saarland.de/lvgl/DE/themen-aufgaben/themen/geotopographie/digitalegelaendemodelle/digitalegelaendemodelle"
+    },
+    {
+      "name": "Staatsbetrieb Geobasisinformation und Vermessung Sachsen : DTM 2 m",
+      "url": "https://www.geodaten.sachsen.de/digitale-hoehenmodelle-3994.html"
+    },
+    {
+      "name": "Landesamt für Vermessung und Geoinformation Sachsen-Anhalt: DTM 5 m",
+      "url": "https://www.lvermgeo.sachsen-anhalt.de/de/kostenfreie_geobasisdaten_lvermgeo.html"
+    },
+    {
+      "name": "Landesamt für Vermessung und Geoinformation Schleswig-Holstein: DTM 1 m",
+      "url": "https://geodaten.schleswig-holstein.de/gaialight-sh/_apps/dladownload/"
+    },
+    {
+      "name": "Freistaat Thüringen, Landesamt für Vermessung und Geoinformation: DTM 1 m (2014-2019), DTM 2 m (2010-2013)",
+      "url": "http://www.geoportal-th.de/de-de/downloadbereiche/downloadoffenegeodatenth%C3%BCringen/downloadh%C3%B6hendaten.aspx"
+    }
+  ]
+}

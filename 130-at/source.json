@@ -1,0 +1,10 @@
+{
+  "name": "at",
+  "file": "/fm/storage1/dtm/at/austria_dtm_2025_1m.tif",
+  "attributions": [
+    {
+      "name": "ALS DTM: Digitales Geländemodell Österreich (Geoland.at open data)",
+      "url": "https://www.data.gv.at/katalog/dataset/d88a1246-9684-480b-a480-ff63286b35b7"
+    }
+  ]
+}
