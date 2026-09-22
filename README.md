@@ -81,7 +81,8 @@ for it, so pick the name once.
 ## Consumers
 
 - **Freemap's elevation API** — reads the rasters and returns these credits.
-- **[`dem-pyramid`](https://github.com/FreemapSlovakia/dem-pyramid)** — reads
-  the credits at startup and reports, per render, which models answered it.
-  Its own build metadata — projection, resolution, nodata, resampling, pyramid
-  levels — is not here; it lives in that repository's `sources.yaml`.
+- **[`dem-pyramid`](https://github.com/FreemapSlovakia/dem-pyramid)** — builds
+  a terrain pyramid from every dataset marked `pyramid`, and reports per render
+  which models answered it, with these credits. It holds no source list of its
+  own: resolution, extent, nodata, resampling and pyramid level are measured
+  from the rasters by `dem-tool refresh` and cached on the data host.
