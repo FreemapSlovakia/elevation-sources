@@ -6,5 +6,6 @@
       "name": "Markhöjdmodell Nedladdning: Lantmäteriet",
       "url": "https://www.lantmateriet.se/en/geodata/our-products/product-list/elevation-model-download/"
     }
-  ]
+  ],
+  "pyramid": true
 }

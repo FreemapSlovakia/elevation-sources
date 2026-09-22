@@ -56,6 +56,7 @@ Every field below is required unless marked optional. No other keys are read.
 | `attributions` | array | What to display when this dataset is used. Must hold at least one entry — a dataset with none stops `dem-pyramid` from starting, because serving uncredited data is a licence breach. |
 | `attributions[].name` | string | The credit line **verbatim** as the licence asks for it, including any required rights-holder wording. Displayed as given; consumers do not reformat it. |
 | `attributions[].url` | string, optional | A page to link the credit to. Omit the key entirely when there is nowhere sensible to point. |
+| `pyramid` | bool, optional | `true` if `dem-pyramid` builds this dataset into its terrain pyramid. Omit it otherwise. Everything the pyramid needs beyond this — resolution, extent, nodata, resampling — it measures from the raster; this flag is the one judgement it cannot make, since no header says whether a dataset is worth ingesting. |
 
 Several entries are normal where one dataset merges data from several
 providers: `250-sonny-de` carries seventeen, one per Land, and `240-be` two,
@@ -65,12 +66,17 @@ for Flanders and Wallonia.
 
 1. Add `NNN-slug/source.json` here, with its credit, and push.
 2. Pull on fm6.
-3. If the pyramid should also build from it, add the matching entry to
-   `sources.yaml` in `dem-pyramid` — same `file`, same `name`, consistent
-   order — and run `dem-tool check`.
+3. If the pyramid should build from it, add `"pyramid": true` and run
+   `dem-tool refresh` on the data host.
 
-Step 3 is optional: this list is the superset. It holds datasets the pyramid
-does not build, and that is not a disagreement.
+Step 3 is optional: this list is the superset. The Sonny datasets are served by
+the elevation API but not built into the pyramid — they bridge the gap between
+national data and GEDTM30, and fall back to SRTM where Sonny found no national
+lidar, which no field here distinguishes.
+
+The directory name is what identifies a dataset downstream: `010-sk` becomes
+`sk`, `090-es-29` becomes `es_29`. Renaming one renames the pyramid's storage
+for it, so pick the name once.
 
 ## Consumers
 

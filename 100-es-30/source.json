@@ -6,5 +6,6 @@
       "name": "MDT05: IGN (CNIG)",
       "url": "https://centrodedescargas.cnig.es/CentroDescargas/modelos-digitales-elevaciones"
     }
-  ]
+  ],
+  "pyramid": true
 }

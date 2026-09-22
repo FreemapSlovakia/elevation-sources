@@ -6,5 +6,6 @@
       "name": "swissALTI3D: © swisstopo",
       "url": "https://www.swisstopo.admin.ch/en/height-models/swissalti3d.html"
     }
-  ]
+  ],
+  "pyramid": true
 }

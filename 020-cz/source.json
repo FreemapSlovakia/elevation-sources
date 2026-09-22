@@ -6,5 +6,6 @@
       "name": "DMR 5G: ČÚZK Geoportál",
       "url": "https://geoportal.cuzk.cz/(S(a21rqp1jhcnkz4iqcen2w50l))/Default.aspx?head_tab=sekce-02-gp&lng=EN&menu=302&metadataID=CZ-CUZK-DMR5G-V&mode=TextMeta&side=vyskopis"
     }
-  ]
+  ],
+  "pyramid": true
 }

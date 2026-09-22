@@ -6,5 +6,6 @@
       "name": "DMR: Državna geodetska uprava",
       "url": "https://dgu.gov.hr/proizvodi-i-usluge/podaci-topografske-izmjere/digitalni-model-reljefa/180"
     }
-  ]
+  ],
+  "pyramid": true
 }

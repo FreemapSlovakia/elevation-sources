@@ -6,5 +6,6 @@
       "name": "DMR: Ministrstvo za okolje in prostor",
       "url": "https://gis.arso.gov.si/evode/profile.aspx?id=atlas_voda_Lidar@Arso"
     }
-  ]
+  ],
+  "pyramid": true
 }

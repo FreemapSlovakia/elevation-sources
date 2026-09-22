@@ -6,5 +6,6 @@
       "name": "RGE ALTI: IGN (Etalab Open Licence)",
       "url": "https://geoservices.ign.fr/rgealti"
     }
-  ]
+  ],
+  "pyramid": true
 }

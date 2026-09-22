@@ -6,5 +6,6 @@
       "name": "GeoSN (Staatsbetrieb Geobasisinformation und Vermessung Sachsen): DGM1 1 m, dl-de/by-2-0",
       "url": "https://www.geodaten.sachsen.de/digitale-hoehenmodelle-3994.html"
     }
-  ]
+  ],
+  "pyramid": true
 }

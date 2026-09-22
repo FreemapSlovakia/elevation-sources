@@ -6,5 +6,6 @@
       "name": "DTM: Kartverket (NLOD 2.0)",
       "url": "https://hoydedata.no/"
     }
-  ]
+  ],
+  "pyramid": true
 }

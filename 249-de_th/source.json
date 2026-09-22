@@ -6,5 +6,6 @@
       "name": "GDI-Th, Freistaat Thüringen: DGM1 1 m, dl-de/by-2-0",
       "url": "https://www.geoportal-th.de/de-de/Downloadbereiche/Download-Offene-Geodaten-Th%C3%BCringen/Download-H%C3%B6hendaten"
     }
-  ]
+  ],
+  "pyramid": true
 }

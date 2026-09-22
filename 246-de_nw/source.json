@@ -6,5 +6,6 @@
       "name": "Land Nordrhein-Westfalen / Geobasis NRW (2022): DGM1 1 m, dl-de/zero-2-0",
       "url": "https://open.nrw/dataset/0c6796e5-9eca-4ae6-8b32-1fcc5ae5c481"
     }
-  ]
+  ],
+  "pyramid": true
 }
