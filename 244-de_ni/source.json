@@ -1,0 +1,11 @@
+{
+  "name": "de",
+  "file": "/fm/storage2/dtm/de_ni/all.vrt",
+  "attributions": [
+    {
+      "name": "Landesamt für Geoinformation und Landesvermessung Niedersachsen (LGLN): DGM1 1 m, CC BY 4.0",
+      "url": "https://ni-lgln-opengeodata.hub.arcgis.com/items/18cc3ed281db489e9b4d47c835f14ea9"
+    }
+  ],
+  "pyramid": true
+}
