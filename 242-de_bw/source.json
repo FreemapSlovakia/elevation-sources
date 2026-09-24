@@ -1,0 +1,11 @@
+{
+  "name": "de",
+  "file": "/fm/storage2/dtm/de_bw/all.vrt",
+  "attributions": [
+    {
+      "name": "Datenquelle: LGL, www.lgl-bw.de, dl-de/by-2-0",
+      "url": "https://opengeodata.lgl-bw.de/"
+    }
+  ],
+  "pyramid": true
+}
