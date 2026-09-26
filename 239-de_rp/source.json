@@ -1,0 +1,11 @@
+{
+  "name": "de",
+  "file": "/fm/storage2/dtm/de_rp/all.vrt",
+  "attributions": [
+    {
+      "name": "©GeoBasis-DE / LVermGeoRP 2026, dl-de/by-2-0, www.lvermgeo.rlp.de",
+      "url": "https://geoshop.rlp.de/opendata-dgm1.html"
+    }
+  ],
+  "pyramid": true
+}
