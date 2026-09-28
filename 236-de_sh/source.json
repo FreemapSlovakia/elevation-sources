@@ -1,0 +1,11 @@
+{
+  "name": "de",
+  "file": "/fm/storage2/dtm/de_sh/all.vrt",
+  "attributions": [
+    {
+      "name": "© GeoBasis-DE/LVermGeo SH, CC BY 4.0",
+      "url": "https://geodaten.schleswig-holstein.de/gaialight-sh/_apps/dladownload/dl-dgm1.html"
+    }
+  ],
+  "pyramid": true
+}
