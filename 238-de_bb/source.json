@@ -1,0 +1,11 @@
+{
+  "name": "de",
+  "file": "/fm/storage2/dtm/de_bb/all.vrt",
+  "attributions": [
+    {
+      "name": "© GeoBasis-DE/LGB, dl-de/by-2-0",
+      "url": "https://data.geobasis-bb.de/geobasis/daten/dgm/"
+    }
+  ],
+  "pyramid": true
+}
