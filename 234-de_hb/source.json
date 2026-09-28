@@ -1,0 +1,11 @@
+{
+  "name": "de",
+  "file": "/fm/storage2/dtm/de_hb/all.vrt",
+  "attributions": [
+    {
+      "name": "Landesamt GeoInformation Bremen, CC BY 4.0",
+      "url": "https://www.geo.bremen.de/"
+    }
+  ],
+  "pyramid": true
+}

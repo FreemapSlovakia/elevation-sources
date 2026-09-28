@@ -1,0 +1,11 @@
+{
+  "name": "de",
+  "file": "/fm/storage2/dtm/de_hh/all.vrt",
+  "attributions": [
+    {
+      "name": "Freie und Hansestadt Hamburg, Landesbetrieb Geoinformation und Vermessung (LGV), dl-de/by-2-0",
+      "url": "https://daten-hamburg.de/"
+    }
+  ],
+  "pyramid": true
+}
