@@ -1,0 +1,11 @@
+{
+  "name": "wls",
+  "file": "/fm/storage2/dtm/wls/all.vrt",
+  "attributions": [
+    {
+      "name": "LiDAR DTM 1 m (Wales, OGL v3): © Welsh Government and Natural Resources Wales. All rights reserved.",
+      "url": "https://datamap.gov.wales/maps/lidar-data-download/"
+    }
+  ],
+  "pyramid": true
+}
