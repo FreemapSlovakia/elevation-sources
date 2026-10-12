@@ -35,7 +35,7 @@ GDAL opens a VRT through the link with its relative sources intact.
 | Part | Meaning |
 | --- | --- |
 | `NNN` | Precedence. The first source covering a point answers for it, so a **lower number outranks a higher one**. `999-gedtm30` is the global fallback and every other source outranks it. `terrain-tiles` orders its sources by it too. |
-| `slug` | For readers only. Nothing parses it. |
+| `slug` | The dataset's id downstream; see [Adding a dataset](#adding-a-dataset). |
 
 Numbers are spaced so a source can be inserted between two others without
 renaming them. They need not be contiguous, but they must be unique, and the
@@ -63,7 +63,7 @@ Every field below is required unless marked optional. No other keys are read.
 | Field | Type | Meaning |
 | --- | --- | --- |
 | `name` | string | The **model** this dataset belongs to, as the API reports it: an ISO country code for a national model (`sk`, `cz`, `fr`), the model's own id otherwise (`gedtm30`, `sonny`). Not unique — several datasets share one name, and consumers merge them under it. `es` is three, `sonny` twelve. |
-| `file` | string | The raster, **absolute**, exactly as GDAL opens it. Unique across the repository: this, not `name`, is what identifies a dataset. A `.vrt` is fine. |
+| `file` | string | The raster, **absolute**, exactly as GDAL opens it; `source.<ext>` links the same file. Unique across the repository. A `.vrt` is fine. |
 | `attributions` | array | What to display when this dataset is used. Must hold at least one entry — a dataset with none stops `dem-pyramid` from starting, because serving uncredited data is a licence breach. |
 | `attributions[].name` | string | The credit line **verbatim** as the licence asks for it, including any required rights-holder wording. Displayed as given; consumers do not reformat it. |
 | `attributions[].url` | string, optional | A page to link the credit to. Omit the key entirely when there is nowhere sensible to point. |
@@ -74,7 +74,8 @@ providers: `340-sonny-gb` carries eight, one per survey it was compiled from.
 
 ## Adding a dataset
 
-1. Add `NNN-slug/source.json` here, with its credit, and push.
+1. Add `NNN-slug/source.json` here, with its credit, and the `source.<ext>`
+   link to its raster; add `mercator.tif` once it is built for shading. Push.
 2. Pull on fm6.
 3. If the pyramid should build from it, add `"pyramid": true` and run
    `dem-tool refresh` on the data host.
@@ -90,13 +91,19 @@ the elevation API but not built into the pyramid — they bridge the gap between
 national data and GEDTM30, and fall back to SRTM where Sonny found no national
 lidar, which no field here distinguishes.
 
-The directory name is what identifies a dataset downstream: `010-sk` becomes
-`sk`, `090-es-29` becomes `es_29`. Renaming one renames the pyramid's storage
-for it, so pick the name once.
+The directory name without its number is what identifies a dataset
+downstream: `010-sk` becomes `sk`, `090-es-29` becomes `es_29` in the pyramid,
+and `terrain-tiles` credits `245-de_by` as `de_by`. Renaming the slug renames
+the pyramid's storage for it, so pick it once; renumbering changes only the
+precedence.
 
 ## Consumers
 
-- **Freemap's elevation API** — reads the rasters and returns these credits.
+- **Freemap's elevation API** (`freemap-v3-api`) — reads the rasters and
+  returns these credits.
+- **[`terrain-tiles`](https://github.com/FreemapSlovakia/terrain-tiles)** —
+  serves elevation and shading tiles from the `mercator.tif` rasters and credits
+  them from here.
 - **[`dem-pyramid`](https://github.com/FreemapSlovakia/dem-pyramid)** — builds
   a terrain pyramid from every dataset marked `pyramid`, and reports per render
   which models answered it, with these credits. It holds no source list of its
