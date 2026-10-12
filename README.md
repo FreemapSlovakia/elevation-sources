@@ -26,7 +26,7 @@ The two symlinks point at rasters on fm6, so they dangle anywhere else:
 | Link | Target |
 | --- | --- |
 | `source.<ext>` | The original raster, the one `file` names; `.vrt` or `.tif` after its target. |
-| `mercator.tif` | Where one is built: the dataset in EPSG:3857 on the XYZ pixel grid of its zoom, Int32 heights in 2 mm steps, nodata `-2147483648`, average overviews down to z8 — what `terrain-tiles` serves. |
+| `mercator.tif` | Where one is built: the dataset in EPSG:3857 on the XYZ pixel grid of its zoom, Int32 heights in 2 mm steps, nodata `-2147483648`, average overviews down to z8 — what `terrain-tiles` serves. A dataset with this link is in `dem-pyramid`'s terrain pyramid too. |
 
 GDAL opens a VRT through the link with its relative sources intact.
 
@@ -38,10 +38,7 @@ GDAL opens a VRT through the link with its relative sources intact.
 | `slug` | The dataset's id downstream; see [Adding a dataset](#adding-a-dataset). |
 
 Numbers are spaced so a source can be inserted between two others without
-renaming them. They need not be contiguous, but they must be unique, and the
-relative order must match the `priority` column in `dem-pyramid`'s
-`sources.yaml` for the datasets that appear in both — `dem-tool check`
-compares the two and fails on disagreement.
+renaming them. They need not be contiguous, but they must be unique.
 
 ## source.json
 
@@ -67,7 +64,6 @@ Every field below is required unless marked optional. No other keys are read.
 | `attributions` | array | What to display when this dataset is used. Must hold at least one entry — a dataset with none stops `dem-pyramid` from starting, because serving uncredited data is a licence breach. |
 | `attributions[].name` | string | The credit line **verbatim** as the licence asks for it, including any required rights-holder wording. Displayed as given; consumers do not reformat it. |
 | `attributions[].url` | string, optional | A page to link the credit to. Omit the key entirely when there is nowhere sensible to point. |
-| `pyramid` | bool, optional | `true` if `dem-pyramid` builds this dataset into its terrain pyramid. Omit it otherwise. Everything the pyramid needs beyond this — resolution, extent, nodata, resampling — it measures from the raster; this flag is the one judgement it cannot make, since no header says whether a dataset is worth ingesting. |
 
 Several entries are normal where one dataset merges data from several
 providers: `340-sonny-gb` carries eight, one per survey it was compiled from.
@@ -77,25 +73,24 @@ providers: `340-sonny-gb` carries eight, one per survey it was compiled from.
 1. Add `NNN-slug/source.json` here, with its credit, and the `source.<ext>`
    link to its raster; add `mercator.tif` once it is built for shading. Push.
 2. Pull on fm6.
-3. If the pyramid should build from it, add `"pyramid": true` and run
-   `dem-tool refresh` on the data host.
+3. Once `mercator.tif` is linked, the dataset is in the pyramid: on the data
+   host run `dem-tool refresh`, `bin/index.sh` and restart `terrain`.
 
-**Removing `pyramid` from a dataset the pyramid already built needs the same
-second step.** `dem-pyramid` refuses to start while its cache still holds a
-source this list no longer marks, since it then has no credit to show for it —
-so unmark it here, then run `dem-tool refresh` on the data host. Otherwise the
-next restart of a running service is where it surfaces.
+**Removing `mercator.tif` from a dataset the pyramid reads needs the same third
+step.** `dem-pyramid` refuses to start while its cache still holds a dataset
+that no longer links one, since it then has no credit to show for it — so unlink
+it here, then run `dem-tool refresh` on the data host. Otherwise the next
+restart of a running service is where it surfaces.
 
-Step 3 is optional: this list is the superset. The Sonny datasets are served by
-the elevation API but not built into the pyramid — they bridge the gap between
-national data and GEDTM30, and fall back to SRTM where Sonny found no national
-lidar, which no field here distinguishes.
+This list is the superset. The Sonny datasets have no `mercator.tif`: they are
+served by the elevation API only — they bridge the gap between national data and
+GEDTM30, and fall back to SRTM where Sonny found no national lidar, which no
+field here distinguishes.
 
 The directory name without its number is what identifies a dataset
 downstream: `010-sk` becomes `sk`, `090-es-29` becomes `es_29` in the pyramid,
-and `terrain-tiles` credits `245-de_by` as `de_by`. Renaming the slug renames
-the pyramid's storage for it, so pick it once; renumbering changes only the
-precedence.
+and `terrain-tiles` credits `245-de_by` as `de_by`. Renumbering changes only
+the precedence.
 
 ## Consumers
 
@@ -104,8 +99,8 @@ precedence.
 - **[`terrain-tiles`](https://github.com/FreemapSlovakia/terrain-tiles)** —
   serves elevation and shading tiles from the `mercator.tif` rasters and credits
   them from here.
-- **[`dem-pyramid`](https://github.com/FreemapSlovakia/dem-pyramid)** — builds
-  a terrain pyramid from every dataset marked `pyramid`, and reports per render
-  which models answered it, with these credits. It holds no source list of its
-  own: resolution, extent, nodata, resampling and pyramid level are measured
-  from the rasters by `dem-tool refresh` and cached on the data host.
+- **[`dem-pyramid`](https://github.com/FreemapSlovakia/dem-pyramid)** — indexes
+  the `mercator.tif` of every dataset that links one, in directory order, and
+  reports per render which models answered it, with these credits. It holds no
+  source list of its own: each raster's zoom and extent are measured by
+  `dem-tool refresh` and cached on the data host.

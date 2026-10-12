@@ -6,6 +6,5 @@
       "name": "LiDAR DTM 1 m (Wales, OGL v3): © Welsh Government and Natural Resources Wales. All rights reserved.",
       "url": "https://datamap.gov.wales/maps/lidar-data-download/"
     }
-  ],
-  "pyramid": true
+  ]
 }
