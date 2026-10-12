@@ -25,7 +25,7 @@ The two symlinks point at rasters on fm6, so they dangle anywhere else:
 
 | Link | Target |
 | --- | --- |
-| `source.<ext>` | The original raster, the one `file` names; `.vrt` or `.tif` after its target. |
+| `source.<ext>` | The original raster, which the elevation API reads; `.vrt` or `.tif` after its target. |
 | `mercator.tif` | Where one is built: the dataset in EPSG:3857 on the XYZ pixel grid of its zoom, Int32 heights in 2 mm steps, nodata `-2147483648`, average overviews down to z8 — what `terrain-tiles` serves. A dataset with this link is in `dem-pyramid`'s terrain pyramid too. |
 
 GDAL opens a VRT through the link with its relative sources intact.
@@ -35,10 +35,12 @@ GDAL opens a VRT through the link with its relative sources intact.
 | Part | Meaning |
 | --- | --- |
 | `NNN` | Precedence. The first source covering a point answers for it, so a **lower number outranks a higher one**. `999-gedtm30` is the global fallback and every other source outranks it. `terrain-tiles` orders its sources by it too. |
-| `slug` | The dataset's id downstream; see [Adding a dataset](#adding-a-dataset). |
+| `slug` | Lowercase. The dataset's id downstream, and up to its first `-` or `_` the **model** it belongs to, as the elevation API reports it: an ISO country code for a national model, the model's own id otherwise. `245-de_by` and `249-de_th` are both `de`, `090-es-29` is `es`, `340-sonny-gb` is `sonny`. |
 
 Numbers are spaced so a source can be inserted between two others without
 renaming them. They need not be contiguous, but they must be unique.
+Renumbering changes only the precedence; renaming the slug changes what the
+API reports and renames the pyramid's storage for the dataset, so pick it once.
 
 ## source.json
 
@@ -46,8 +48,6 @@ Every field below is required unless marked optional. No other keys are read.
 
 ```json
 {
-  "name": "sk",
-  "file": "/fm/storage1/dtm/dmr5_jtsk03.tif",
   "attributions": [
     {
       "name": "DMR 5.0: ÚGKK SR",
@@ -59,8 +59,6 @@ Every field below is required unless marked optional. No other keys are read.
 
 | Field | Type | Meaning |
 | --- | --- | --- |
-| `name` | string | The **model** this dataset belongs to, as the API reports it: an ISO country code for a national model (`sk`, `cz`, `fr`), the model's own id otherwise (`gedtm30`, `sonny`). Not unique — several datasets share one name, and consumers merge them under it. `es` is three, `sonny` twelve. |
-| `file` | string | The raster, **absolute**, exactly as GDAL opens it; `source.<ext>` links the same file. Unique across the repository. A `.vrt` is fine. |
 | `attributions` | array | What to display when this dataset is used. Must hold at least one entry — a dataset with none stops `dem-pyramid` from starting, because serving uncredited data is a licence breach. |
 | `attributions[].name` | string | The credit line **verbatim** as the licence asks for it, including any required rights-holder wording. Displayed as given; consumers do not reformat it. |
 | `attributions[].url` | string, optional | A page to link the credit to. Omit the key entirely when there is nowhere sensible to point. |
@@ -89,8 +87,7 @@ field here distinguishes.
 
 The directory name without its number is what identifies a dataset
 downstream: `010-sk` becomes `sk`, `090-es-29` becomes `es_29` in the pyramid,
-and `terrain-tiles` credits `245-de_by` as `de_by`. Renumbering changes only
-the precedence.
+and `terrain-tiles` credits `245-de_by` as `de_by`.
 
 ## Consumers
 
