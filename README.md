@@ -62,6 +62,7 @@ Every field below is required unless marked optional. No other keys are read.
 | `attributions` | array | What to display when this dataset is used. Must hold at least one entry — a dataset with none stops `dem-pyramid` from starting, because serving uncredited data is a licence breach. |
 | `attributions[].name` | string | The credit line **verbatim** as the licence asks for it, including any required rights-holder wording. Displayed as given; consumers do not reformat it. |
 | `attributions[].url` | string, optional | A page to link the credit to. Omit the key entirely when there is nowhere sensible to point. |
+| `osmSource` | string, optional | The `source=` tag for OSM data derived from this dataset. Set it only where the licence is known to allow use in OpenStreetMap; streamfinder marks data from a dataset without it for the mapper to check. |
 
 Several entries are normal where one dataset merges data from several
 providers: `340-sonny-gb` carries eight, one per survey it was compiled from.
@@ -93,6 +94,9 @@ and `terrain-tiles` credits `245-de_by` as `de_by`.
 
 - **Freemap's elevation API** (`freemap-v3-api`) — reads the rasters and
   returns these credits.
+- **[`streamfinder`](https://github.com/FreemapSlovakia/streamfinder)** —
+  derives streams from the rasters in their own CRS, the first source with
+  data in the area on top, and tags them from `osmSource` or these credits.
 - **[`terrain-tiles`](https://github.com/FreemapSlovakia/terrain-tiles)** —
   serves elevation and shading tiles from the `mercator.tif` rasters and credits
   them from here.
